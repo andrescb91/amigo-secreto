@@ -133,7 +133,16 @@ ul {
     font-size: 18px;
     margin: 20px 0;
 }
+li{
+    display: inline-block;
+    padding: 5px;
+    margin: 1px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #4B69FD;
+    color: #FFFFFF;
 
+}
 .result-list {
     margin-top: 15px;
     color: #05DF05;
