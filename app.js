@@ -2,17 +2,23 @@
 let NumeroAmigos=1;
 let listaAmigos=[];
 function agregarAmigo(){
+
     let amigo=document.getElementById("amigo");
     if(validarNombreAmigo(amigo.value)){
-        alert("No se permiten caracteres espciales y numeros");
-        clearInpu();
+        alert("El nombre contien caracteres especiales o Numeros");
+        clearInput();
+        return;
+    }
+    if(amigo.value==""){
+        alert("Por favor, escriba un nombre");
+        clearInput();
         return;
     }
     let lista=document.getElementById("listaAmigos");
     lista.innerHTML+=`<li id="friend_${NumeroAmigos}">${amigo.value}</li>`;
     listaAmigos.push(amigo.value);
     NumeroAmigos++;
-    clearInpu();
+    clearInput();
 }
 function validarNombreAmigo(nombreAmigo){
     // Expresión regular para verificar si contiene al menos un número
@@ -29,9 +35,10 @@ function validarNombreAmigo(nombreAmigo){
         return false;
     }
 }
-function clearInpu(){
+function clearInput(){
     amigo.value="";
     amigo.focus();
+    document.getElementById("resultado").innerHTML="";
 }
 
 function sortearAmigo(){
@@ -41,16 +48,14 @@ function sortearAmigo(){
 }
 
 function resetJuegoAS(){
-    console.log(listaAmigos)
     NumeroAmigos=1
     deleteElementsHtml();
     listaAmigos=[];
-    document.getElementById("resultado").value="";
+    clearInput()
 }
 
 function deleteElementsHtml(){
     for (let index=1;index<=listaAmigos.length;index++) {
         document.getElementById(`friend_${index}`).remove();   
-    }
-   
+    } 
 }
