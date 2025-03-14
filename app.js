@@ -3,12 +3,11 @@ let NumeroAmigos=1;
 let listaAmigos=[];
 function agregarAmigo(){
     let amigo=document.getElementById("amigo");
-    validarNombreAmigo(amigo.value);
-    /*if(validarNombreAmigo(amigo.value)){
+    if(validarNombreAmigo(amigo.value)){
         alert("No se permiten caracteres espciales y numeros");
         clearInpu();
         return;
-    }*/
+    }
     let lista=document.getElementById("listaAmigos");
     lista.innerHTML+=`<li id="friend_${NumeroAmigos}">${amigo.value}</li>`;
     listaAmigos.push(amigo.value);
@@ -24,7 +23,11 @@ function validarNombreAmigo(nombreAmigo){
     let tieneEspecial = /[^a-zA-Z0-9\s]/.test(nombreAmigo);
     console.log(tieneEspecial)
     // Verificar si ambos se encuentran en el string
-    return tieneNumero && tieneEspecial;
+    if(tieneNumero===true || tieneEspecial===true){
+        return true;
+    }else{
+        return false;
+    }
 }
 function clearInpu(){
     amigo.value="";
