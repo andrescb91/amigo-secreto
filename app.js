@@ -70,7 +70,7 @@ function resetJuegoAS(){
         return;
     }
     //reiniciamos a los parametros iniciales las variables;
-    NumeroAmigos=1
+    NumeroAmigos=0
     deleteElementsHtml();
     listaAmigos=[];
     clearInput()
